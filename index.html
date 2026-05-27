@@ -72,8 +72,8 @@
 
   <!-- ═══════════════════════  HEADER  ═══════════════════════ -->
   <header class="bg-white py-3 px-4 md:px-12 flex items-center justify-between shadow-sm sticky top-0 z-50 border-b border-brandYellow/30">
-    <!-- left panel: tagline + quick contact -->
-    <div class="flex-1 flex flex-col gap-1.5 hidden md:flex">
+    <!-- left panel: tagline + quick contact (desktop only) -->
+    <div class="flex-1 flex-col gap-1.5 hidden md:flex">
       <p class="font-serif italic text-brandMaroon text-sm font-semibold leading-tight">Heritage of Flavor</p>
       <p class="text-gray-400 text-xs uppercase tracking-widest">Est. 1988</p>
       <div class="flex items-center gap-1.5 text-gray-500 text-xs">
@@ -84,22 +84,36 @@
       </div>
     </div>
 
+    <!-- Logo -->
     <a href="#home" class="flex justify-center">
-      <img
-        alt="KBS Logo"
-        class="h-20 md:h-24 object-contain"
-        src="images/kbslogo.jpeg"
-      />
+      <img alt="KBS Logo" class="h-16 md:h-24 object-contain" src="images/kbslogo.jpeg"/>
     </a>
 
-    <nav class="flex-1 flex justify-end items-center gap-6 text-base font-semibold uppercase tracking-widest">
-      <a class="nav-link active text-brandDark"                       href="#home">Home</a>
-      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors" href="#products">Products</a>
-      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors" href="#about">About</a>
-      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors" href="#events">Events</a>
-      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors" href="#contact">Contact</a>
+    <!-- Desktop nav -->
+    <nav class="flex-1 hidden md:flex justify-end items-center gap-6 text-base font-semibold uppercase tracking-widest">
+      <a class="nav-link active text-brandDark"                                   href="#home">Home</a>
+      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#products">Products</a>
+      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#about">About</a>
+      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#events">Events</a>
+      <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#contact">Contact</a>
     </nav>
+
+    <!-- Hamburger button (mobile only) -->
+    <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle menu">
+      <span id="bar1" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+      <span id="bar2" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+      <span id="bar3" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+    </button>
   </header>
+
+  <!-- Mobile dropdown menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-b border-gray-100 sticky top-[67px] z-40">
+    <a href="#home"     onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-brandDark border-b border-gray-100 hover:bg-brandCream">Home</a>
+    <a href="#products" onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">Products</a>
+    <a href="#about"    onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">About</a>
+    <a href="#events"   onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">Events</a>
+    <a href="#contact"  onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 hover:bg-brandCream">Contact</a>
+  </div>
 
   <!-- ═══════════════════════  HERO  ═══════════════════════ -->
   <section id="home" class="relative h-[620px] md:h-[780px] w-full flex items-center justify-center overflow-hidden">
@@ -753,6 +767,30 @@
       lb.classList.remove('flex');
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Hamburger menu toggle
+    const menuBtn  = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+      bar1.style.transform = menuOpen ? 'translateY(8px) rotate(45deg)' : '';
+      bar2.style.opacity   = menuOpen ? '0' : '1';
+      bar3.style.transform = menuOpen ? 'translateY(-8px) rotate(-45deg)' : '';
+    });
+
+    function closeMenu() {
+      menuOpen = false;
+      mobileMenu.classList.add('hidden');
+      bar1.style.transform = '';
+      bar2.style.opacity   = '1';
+      bar3.style.transform = '';
+    }
   </script>
 
 </body>
