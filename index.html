@@ -5,7 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>KBS – Perkhidmatan Dan Jualan Kanesan Bersaudara | Heritage of Flavor</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet"/>
   <script>
     tailwind.config = {
       theme: {
@@ -18,8 +18,10 @@
             brandYellow: '#FFD100',
             brandMaroon: '#CC0000',
             brandDark:   '#990000',
-            brandCream:  '#FFFBEA',
+            brandCream:  '#FAF6EE',
             brandGold:   '#E6A800',
+            brandBrown:  '#2C1A0E',
+            brandStrip:  '#7B1010',
           }
         }
       }
@@ -27,6 +29,7 @@
   </script>
   <style>
     html { scroll-behavior: smooth; }
+    body { background-color: #FAF6EE; }
 
     /* nav underline animation */
     .nav-link { position: relative; }
@@ -41,11 +44,8 @@
     .nav-link:hover::after,
     .nav-link.active::after { width: 100%; }
 
-    /* hero italic shadow */
-    .hero-title {
-      font-style: italic;
-      text-shadow: 2px 4px 12px rgba(0,0,0,0.55);
-    }
+    /* hero heading mixed color */
+    .hero-gold { color: #FFD100; }
 
     /* product card image zoom */
     .product-card .card-img { transition: transform 0.45s ease; }
@@ -59,38 +59,50 @@
       text-transform: uppercase;
     }
 
-    /* fade-in on scroll (lightweight) */
+    /* fade-in on scroll */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
     }
     .fade-up { animation: fadeUp 0.75s ease both; }
+
+    /* bag shape */
+    .product-bag {
+      border-radius: 12px 12px 32px 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-bag::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 18px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 12px 12px 0 0;
+    }
+    .product-bag::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 28px;
+      background: rgba(0,0,0,0.12);
+      border-radius: 0 0 32px 32px;
+    }
   </style>
 </head>
 
-<body class="bg-white font-sans text-gray-900 antialiased">
+<body class="font-sans text-gray-900 antialiased" style="background-color:#FAF6EE;">
 
-  <!-- ═══════════════════════  HEADER  ═══════════════════════ -->
-  <header class="bg-white py-3 px-4 md:px-12 flex items-center justify-between shadow-sm sticky top-0 z-50 border-b border-brandYellow/30">
-    <!-- left panel: tagline + quick contact (desktop only) -->
-    <div class="flex-1 flex-col gap-1.5 hidden md:flex">
-      <p class="font-serif italic text-brandMaroon text-sm font-semibold leading-tight">Heritage of Flavor</p>
-      <p class="text-gray-400 text-xs uppercase tracking-widest">Est. 1988</p>
-      <div class="flex items-center gap-1.5 text-gray-500 text-xs">
-        <svg class="w-3.5 h-3.5 text-brandMaroon flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-        </svg>
-        <span>019-5515612</span>
-      </div>
-    </div>
+<!-- ═══════════════════════  HEADER  ═══════════════════════ -->
+  <header class="bg-brandCream py-3 px-5 md:px-10 flex items-center justify-between shadow-sm sticky top-0 z-50 border-b border-brandGold/20" style="background-color:#FAF6EE;">
 
-    <!-- Logo -->
-    <a href="#home" class="flex justify-center">
-      <img alt="KBS Logo" class="h-16 md:h-24 object-contain" src="images/kbslogo.jpeg"/>
+    <!-- Logo (left) -->
+    <a href="#home" class="flex items-center gap-3">
+      <img alt="KBS Logo" class="h-14 md:h-16" style="mix-blend-mode: multiply;" src="images/kbslogo.jpeg"/>
     </a>
 
-    <!-- Desktop nav -->
-    <nav class="flex-1 hidden md:flex justify-end items-center gap-6 text-base font-semibold uppercase tracking-widest">
+    <!-- Desktop nav (right) -->
+    <nav class="hidden md:flex items-center gap-7 text-sm font-semibold uppercase tracking-widest">
       <a class="nav-link active text-brandDark"                                   href="#home">Home</a>
       <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#products">Products</a>
       <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#about">About</a>
@@ -98,102 +110,72 @@
       <a class="nav-link text-gray-600 hover:text-brandMaroon transition-colors"  href="#contact">Contact</a>
     </nav>
 
-    <!-- Hamburger button (mobile only) -->
+    <!-- Hamburger (mobile) -->
     <button id="menu-btn" class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Toggle menu">
-      <span id="bar1" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
-      <span id="bar2" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
-      <span id="bar3" class="block w-6 h-0.5 bg-gray-800 transition-all duration-300"></span>
+      <span id="bar1" class="block w-6 h-0.5 bg-brandBrown transition-all duration-300"></span>
+      <span id="bar2" class="block w-6 h-0.5 bg-brandBrown transition-all duration-300"></span>
+      <span id="bar3" class="block w-6 h-0.5 bg-brandBrown transition-all duration-300"></span>
     </button>
   </header>
 
-  <!-- Mobile dropdown menu -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg border-b border-gray-100 sticky top-[67px] z-40">
-    <a href="#home"     onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-brandDark border-b border-gray-100 hover:bg-brandCream">Home</a>
-    <a href="#products" onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">Products</a>
-    <a href="#about"    onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">About</a>
-    <a href="#events"   onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-brandCream">Events</a>
-    <a href="#contact"  onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 hover:bg-brandCream">Contact</a>
+  <!-- Mobile dropdown -->
+  <div id="mobile-menu" class="hidden md:hidden shadow-lg border-b border-gray-100 sticky top-[67px] z-40" style="background-color:#FAF6EE;">
+    <a href="#home"        onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-brandDark border-b border-gray-100 hover:bg-white">Home</a>
+    <a href="#products" onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-white">Products</a>
+    <a href="#about"       onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-white">About</a>
+    <a href="#events"      onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 border-b border-gray-100 hover:bg-white">Events</a>
+    <a href="#contact"     onclick="closeMenu()" class="block px-6 py-4 text-sm font-semibold uppercase tracking-widest text-gray-700 hover:bg-white">Contact</a>
   </div>
 
   <!-- ═══════════════════════  HERO  ═══════════════════════ -->
-  <section id="home" class="relative h-[620px] md:h-[780px] w-full flex items-center justify-center overflow-hidden">
+  <section id="home" class="relative min-h-[600px] md:h-[780px] w-full flex items-center justify-center overflow-hidden">
 
-    <!-- Spices background image -->
+    <!-- Background spices image -->
     <img
-      alt="Colourful spices on a wooden table"
-      class="absolute inset-0 w-full h-full object-cover"
+      alt="Colourful spices"
+      class="absolute inset-0 w-full h-full object-cover object-center"
       src="images/spices.jpg"
     />
-    <!-- Dark gradient overlay so text stays readable -->
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 50%, rgba(0,0,0,0.65) 100%);"></div>
 
-    <!-- Decorative mandala ring (top-right) -->
-    <svg class="absolute -top-16 -right-16 w-80 h-80 opacity-10 text-brandYellow" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="90" stroke="#FFD100" stroke-width="1"/>
-      <circle cx="100" cy="100" r="72" stroke="#FFD100" stroke-width="1" stroke-dasharray="6 4"/>
-      <circle cx="100" cy="100" r="54" stroke="#FFD100" stroke-width="1"/>
-      <circle cx="100" cy="100" r="36" stroke="#FFD100" stroke-width="1" stroke-dasharray="4 4"/>
-      <circle cx="100" cy="100" r="18" stroke="#FFD100" stroke-width="1"/>
-      <line x1="100" y1="10" x2="100" y2="190" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="10" y1="100" x2="190" y2="100" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="27" y1="27" x2="173" y2="173" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="173" y1="27" x2="27" y2="173" stroke="#FFD100" stroke-width="0.5"/>
-    </svg>
-
-    <!-- Decorative mandala ring (bottom-left) -->
-    <svg class="absolute -bottom-20 -left-20 w-96 h-96 opacity-10" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="90" stroke="#FFD100" stroke-width="1"/>
-      <circle cx="100" cy="100" r="65" stroke="#FFD100" stroke-width="1" stroke-dasharray="5 5"/>
-      <circle cx="100" cy="100" r="40" stroke="#FFD100" stroke-width="1"/>
-      <line x1="100" y1="10" x2="100" y2="190" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="10" y1="100" x2="190" y2="100" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="27" y1="27" x2="173" y2="173" stroke="#FFD100" stroke-width="0.5"/>
-      <line x1="173" y1="27" x2="27" y2="173" stroke="#FFD100" stroke-width="0.5"/>
-    </svg>
-
-    <!-- Thin gold horizontal rule above/below content -->
-    <div class="absolute left-1/2 -translate-x-1/2 top-[38%] w-px h-16 bg-gradient-to-b from-transparent via-brandYellow/50 to-transparent"></div>
-    <div class="absolute left-1/2 -translate-x-1/2 bottom-[28%] w-px h-16 bg-gradient-to-b from-transparent via-brandYellow/50 to-transparent"></div>
+    <!-- Dark overlay – heavier on left, fades right to reveal spices -->
+    <div class="absolute inset-0" style="background: linear-gradient(105deg, rgba(10,5,3,0.82) 0%, rgba(10,5,3,0.72) 45%, rgba(10,5,3,0.30) 100%);"></div>
 
     <!-- Content -->
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+    <div class="relative z-10 px-6 md:px-16 lg:px-24 max-w-3xl mx-auto py-16 md:py-0 text-center w-full">
 
-      <!-- Ornamental divider -->
-      <div class="flex items-center justify-center gap-3 mb-5">
-        <div class="h-px w-16 bg-brandYellow/60"></div>
-        <svg class="w-5 h-5 text-brandYellow" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/>
-        </svg>
-        <div class="h-px w-16 bg-brandYellow/60"></div>
-      </div>
-
-      <p class="text-brandYellow text-xs md:text-sm font-semibold tracking-[0.45em] uppercase mb-4">
-        Perkhidmatan Dan Jualan Kanesan Bersaudara
-      </p>
-
-      <h1 class="hero-title font-serif text-5xl md:text-7xl lg:text-8xl text-white tracking-wide mb-5">
-        Heritage of Flavor
+      <!-- Company name (prominent) -->
+      <h1 class="font-bold text-brandYellow mb-4 leading-tight" style="font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5.5vw, 4rem); text-shadow: 2px 4px 14px rgba(0,0,0,0.65); letter-spacing: 0.03em;">
+        Perkhidmatan &amp; Jualan<br/>Kanesan Bersaudara
       </h1>
 
-      <!-- Second ornamental divider -->
-      <div class="flex items-center justify-center gap-3 mb-7">
-        <div class="h-px w-12 bg-brandYellow/40"></div>
-        <div class="w-1.5 h-1.5 rounded-full bg-brandYellow/70"></div>
-        <div class="h-px w-24 bg-brandYellow/60"></div>
-        <div class="w-1.5 h-1.5 rounded-full bg-brandYellow/70"></div>
-        <div class="h-px w-12 bg-brandYellow/40"></div>
+      <!-- Divider -->
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <div class="h-px w-12 bg-brandYellow/50"></div>
+        <svg class="w-3.5 h-3.5 text-brandYellow/70" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
+        <div class="h-px w-12 bg-brandYellow/50"></div>
       </div>
 
-      <p class="text-white/80 text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-        Authentic spices, signature curry powders &amp; sacred prayer items —<br class="hidden md:block"/>
-        proudly serving since <span class="text-brandYellow font-semibold">1988</span>.
+      <!-- Tagline (smaller) -->
+      <p class="font-serif italic text-white/90 mb-6" style="font-size: clamp(1.3rem, 3.5vw, 2rem);">
+        Traditional Flavours, Trusted for Generations
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#products" class="bg-brandYellow text-brandDark px-9 py-3.5 rounded-md font-bold text-sm uppercase tracking-wide hover:bg-white transition-colors shadow-lg shadow-black/30">
+      <!-- Subtitle -->
+      <p class="text-white/80 text-base md:text-lg leading-relaxed mb-9 max-w-lg mx-auto">
+        Authentic spices, signature curry powders and prayer essentials proudly serving Malaysian families <span class="text-brandYellow font-semibold">since 1988</span>.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#products"
+           class="inline-flex items-center gap-2 bg-brandMaroon text-white px-7 py-3.5 rounded font-bold text-sm uppercase tracking-wide hover:bg-brandDark transition-colors shadow-lg">
           Explore Products
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
         </a>
-        <a href="#about" class="border border-white/50 text-white px-9 py-3.5 rounded-md font-semibold text-sm uppercase tracking-wide hover:border-brandYellow hover:text-brandYellow transition-colors">
+        <a href="#about"
+           class="inline-flex items-center gap-2 border-2 border-white/60 text-white px-7 py-3.5 rounded font-bold text-sm uppercase tracking-wide hover:border-brandYellow hover:text-brandYellow transition-colors">
           Our Story
         </a>
       </div>
@@ -202,130 +184,125 @@
   </section>
 
   <!-- ═══════════════════  VALUES STRIP  ═══════════════════ -->
-  <div class="bg-brandMaroon py-10 px-6 md:px-12">
-    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+  <div class="py-10 px-6 md:px-12" style="background-color:#7B1010;">
+    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 md:gap-12 text-center">
 
-      <div class="space-y-1.5">
-        <svg class="w-9 h-9 mx-auto text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 3a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2H5z"/>
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/>
-        </svg>
-        <p class="text-white font-semibold">100% Natural</p>
-        <p class="text-white/60 text-xs">No additives or preservatives</p>
+      <div class="space-y-2">
+        <div class="w-14 h-14 mx-auto rounded-full border-2 border-brandYellow/60 flex items-center justify-center">
+          <svg class="w-7 h-7 text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1.2 5.4-5 7.8-5 12a5 5 0 0010 0c0-4.2-3.8-6.6-5-12z"/>
+          </svg>
+        </div>
+        <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wider">100% Natural</p>
+        <p class="text-white/55 text-xs leading-snug">Pure ingredients,<br class="hidden md:block"/> nothing artificial.</p>
       </div>
 
-      <div class="space-y-1.5">
-        <svg class="w-9 h-9 mx-auto text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c-1.2 5.4-5 7.8-5 12a5 5 0 0010 0c0-4.2-3.8-6.6-5-12z"/>
-        </svg>
-        <p class="text-white font-semibold">Family Recipes</p>
-        <p class="text-white/60 text-xs">Passed down for generations</p>
+      <div class="space-y-2">
+        <div class="w-14 h-14 mx-auto rounded-full border-2 border-brandYellow/60 flex items-center justify-center">
+          <svg class="w-7 h-7 text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+          </svg>
+        </div>
+        <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wider">Authentic Recipes</p>
+        <p class="text-white/55 text-xs leading-snug">Traditional taste<br class="hidden md:block"/> passed down.</p>
       </div>
 
-      <div class="space-y-1.5">
-        <svg class="w-9 h-9 mx-auto text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-        </svg>
-        <p class="text-white font-semibold">Trusted Quality</p>
-        <p class="text-white/60 text-xs">Est. 1988 — 38 years of excellence</p>
-      </div>
-
-      <div class="space-y-1.5">
-        <svg class="w-9 h-9 mx-auto text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
-        </svg>
-        <p class="text-white font-semibold">Wide Range</p>
-        <p class="text-white/60 text-xs">Spices, curries &amp; prayer items</p>
+      <div class="space-y-2">
+        <div class="w-14 h-14 mx-auto rounded-full border-2 border-brandYellow/60 flex items-center justify-center">
+          <svg class="w-7 h-7 text-brandYellow" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+        </div>
+        <p class="text-white font-bold text-xs md:text-sm uppercase tracking-wider">Family Trusted</p>
+        <p class="text-white/55 text-xs leading-snug">Proudly made for<br class="hidden md:block"/> Malaysian families.</p>
       </div>
 
     </div>
   </div>
 
-  <!-- ═══════════════════  PRODUCTS  ═══════════════════ -->
-  <section id="products" class="py-24 px-6 md:px-12 lg:px-24 bg-brandCream">
+  <!-- ═══════════════════  PRODUCTS (All Categories)  ═══════════════════ -->
+  <section id="products" class="py-20 px-6 md:px-12 lg:px-24 bg-white">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-14">
         <p class="section-tag mb-2">What We Offer</p>
-        <h2 class="font-serif text-4xl md:text-5xl text-brandDark mb-4">Our Products</h2>
-        <div class="w-20 h-1 bg-brandMaroon mx-auto mb-6 rounded-full"></div>
-        <p class="text-gray-600 max-w-xl mx-auto text-lg">
+        <h2 class="font-serif text-4xl md:text-5xl text-brandBrown mb-4">Our Products</h2>
+        <div class="w-20 h-1 bg-brandMaroon mx-auto mb-5 rounded-full"></div>
+        <p class="text-gray-500 max-w-xl mx-auto text-base md:text-lg">
           From the kitchen to the prayer room — every product rooted in authenticity.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Card 1 · Food Spices -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
-          <div class="h-64 w-full overflow-hidden">
+        <div class="product-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col bg-white border border-gray-100">
+          <div class="h-60 w-full overflow-hidden">
             <img
               alt="Food Spices"
               class="card-img w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo3lV-GIrVJXS-hhoJaEBMvqTrE4RxbQjWdiaANS2DJ9DmFjxPypw5lp4Pu2SlGbJOqvOnf8qrV_FgabnqwbW578sbCw3C8KJCkjguR6NR2M7MVv-PNPYFJMmODS9N1lXkFU2MQrLpzHZAOQDkS1GoDCR0vVHApsnkfPprB3jdKTBFbCV4kqD5Z7_k6zLIK3zHqxMaygVAeoovkO-FRc5HE0YDvGpzACMn8TExW-qjAMmhzh_CAblk0PbHEA23EscBpDELjejWZ5c"
             />
           </div>
-          <div class="p-8 flex flex-col flex-1">
+          <div class="p-7 flex flex-col flex-1">
             <div class="mb-3 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span>
               <span class="text-xs text-brandGold font-semibold uppercase tracking-wider">Cooking</span>
             </div>
-            <h3 class="font-serif text-2xl text-brandDark mb-3">Food Spices</h3>
-            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-6">
-              Whole and ground spices — turmeric, cumin, coriander, cardamom, star anise, and more.
-              Sourced from the finest farms and packed fresh to preserve every note of aroma.
+            <h3 class="font-serif text-xl text-brandBrown mb-3">Food Spices</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+              Whole and ground spices — turmeric, cumin, coriander, cardamom, star anise, and more. Sourced from the finest farms and packed fresh.
             </p>
-            <button class="bg-brandMaroon text-white px-6 py-3 rounded-md font-semibold text-sm uppercase tracking-wide hover:bg-brandDark transition-colors w-full">
+            <button class="bg-brandMaroon text-white px-5 py-3 rounded font-semibold text-xs uppercase tracking-wide hover:bg-brandDark transition-colors w-full">
               Explore Spices
             </button>
           </div>
         </div>
 
         <!-- Card 2 · Curry Powders -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
-          <div class="h-64 w-full overflow-hidden">
+        <div class="product-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col bg-white border border-gray-100">
+          <div class="h-60 w-full overflow-hidden">
             <img
               alt="Curry Powders"
               class="card-img w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRxm5vjjt4uaANTaKeWgYpyFlDOgj1GD0_SI1sViukHQuSEP099Snu1wxZWSXWGV-YbAIOw7Bk1w3zXMIpKatOzEhPiIf7AAdYTb7o6TOpue0Z_b1IELhLxv5AnGGWECPbs__6k4KNR_EUn1dVUtoAQCVS6YBBhvYFKHTkBUHV7DA9Z8n__fZaU2Dqq-EK0oiEnVEMgiHCeeF7zTAdQgNryLd-z5o2DY5SfvaU5TNCqoXQmILChU3rn3tVNzyWOEx4kB12j0FNnqE"
             />
           </div>
-          <div class="p-8 flex flex-col flex-1">
+          <div class="p-7 flex flex-col flex-1">
             <div class="mb-3 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span>
               <span class="text-xs text-brandGold font-semibold uppercase tracking-wider">Signature Blends</span>
             </div>
-            <h3 class="font-serif text-2xl text-brandDark mb-3">Curry Powders</h3>
-            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-6">
-              Chicken, fish, meat, and vegetable curry powders — each blend crafted to deliver
-              authentic, rich flavour to your everyday cooking.
+            <h3 class="font-serif text-xl text-brandBrown mb-3">Curry Powders</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+              Chicken, fish, meat, and vegetable curry powders — each blend crafted to deliver authentic, rich flavour to your everyday cooking.
             </p>
-            <a href="https://jayasakti.com.my/contact-us/our-agent/" target="_blank" rel="noopener noreferrer" class="bg-brandMaroon text-white px-6 py-3 rounded-md font-semibold text-sm uppercase tracking-wide hover:bg-brandDark transition-colors w-full text-center block">
+            <a href="https://jayasakti.com.my/contact-us/our-agent/" target="_blank" rel="noopener noreferrer"
+               class="bg-brandMaroon text-white px-5 py-3 rounded font-semibold text-xs uppercase tracking-wide hover:bg-brandDark transition-colors w-full text-center block">
               Discover Blends
             </a>
           </div>
         </div>
 
         <!-- Card 3 · Prayer Items -->
-        <div class="product-card bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col">
-          <div class="h-64 w-full overflow-hidden">
+        <div class="product-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow flex flex-col bg-white border border-gray-100">
+          <div class="h-60 w-full overflow-hidden">
             <img
               alt="Prayer Items"
               class="card-img w-full h-full object-cover"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9_rjlpbIzGmTV5fnDyENDsIloO0SZiQY45rEerixaBUvsT23_Gyci7WKMpo142eVsXMuBiLIptY9JVDAB8RYfJ8uzYQkMa6xWYcXugjg6xle0pKa_qHgHaBg1NaAMDsloE51mvnZ6r3pF1wSDixCxpdbriRaJvKwby30FvdqHgiZnyJRRVb13SV2Rv3shjT3SUOwRiPJmzj5goft4DcQaY23YxKg7zRxuyKm3ZeQ-zEOmiBwus5kzzHE9r8o7hKZJxuqWsAnEBUM"
             />
           </div>
-          <div class="p-8 flex flex-col flex-1">
+          <div class="p-7 flex flex-col flex-1">
             <div class="mb-3 flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-brandYellow inline-block"></span>
               <span class="text-xs text-brandGold font-semibold uppercase tracking-wider">Devotional</span>
             </div>
-            <h3 class="font-serif text-2xl text-brandDark mb-3">Prayer Items</h3>
-            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-6">
-              Traditional Indian puja essentials — incense sticks, oil lamps, camphor, garlands,
-              and ceremonial items for daily worship and festive occasions.
+            <h3 class="font-serif text-xl text-brandBrown mb-3">Prayer Items</h3>
+            <p class="text-gray-500 text-sm leading-relaxed flex-1 mb-5">
+              Traditional Indian puja essentials — incense sticks, oil lamps, camphor, garlands, and ceremonial items for worship and festive occasions.
             </p>
-            <button class="bg-brandMaroon text-white px-6 py-3 rounded-md font-semibold text-sm uppercase tracking-wide hover:bg-brandDark transition-colors w-full">
+            <button class="bg-brandMaroon text-white px-5 py-3 rounded font-semibold text-xs uppercase tracking-wide hover:bg-brandDark transition-colors w-full">
               Browse Collection
             </button>
           </div>
@@ -336,16 +313,16 @@
   </section>
 
   <!-- ═══════════════════  ABOUT US  ═══════════════════ -->
-  <section id="about" class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+  <section id="about" class="py-20 px-6 md:px-12 lg:px-24" style="background-color:#FAF6EE;">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-14">
         <p class="section-tag mb-2">Who We Are</p>
-        <h2 class="font-serif text-4xl md:text-5xl text-brandDark mb-4">About KBS</h2>
-        <div class="w-20 h-1 bg-brandYellow mx-auto rounded-full"></div>
+        <h2 class="font-serif text-4xl md:text-5xl text-brandBrown mb-4">About KBS</h2>
+        <div class="w-20 h-1 bg-brandGold mx-auto rounded-full"></div>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
         <!-- image -->
         <div class="relative">
@@ -354,7 +331,6 @@
             class="rounded-2xl shadow-xl w-full h-[420px] object-cover"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo3lV-GIrVJXS-hhoJaEBMvqTrE4RxbQjWdiaANS2DJ9DmFjxPypw5lp4Pu2SlGbJOqvOnf8qrV_FgabnqwbW578sbCw3C8KJCkjguR6NR2M7MVv-PNPYFJMmODS9N1lXkFU2MQrLpzHZAOQDkS1GoDCR0vVHApsnkfPprB3jdKTBFbCV4kqD5Z7_k6zLIK3zHqxMaygVAeoovkO-FRc5HE0YDvGpzACMn8TExW-qjAMmhzh_CAblk0PbHEA23EscBpDELjejWZ5c"
           />
-          <!-- floating badge -->
           <div class="absolute -bottom-6 -right-4 md:-right-8 bg-brandMaroon text-white rounded-2xl px-7 py-5 shadow-lg text-center">
             <p class="font-serif text-4xl font-bold leading-none">38+</p>
             <p class="text-xs text-white/80 mt-1 uppercase tracking-widest">Years of<br/>Heritage</p>
@@ -362,32 +338,28 @@
         </div>
 
         <!-- text -->
-        <div class="space-y-6 lg:pl-4">
-          <h3 class="font-serif text-3xl md:text-4xl text-brandDark italic leading-snug">
+        <div class="space-y-5 lg:pl-4">
+          <h3 class="font-serif text-3xl md:text-4xl text-brandBrown italic leading-snug">
             A Legacy Built on Passion &amp; Tradition
           </h3>
-          <p class="text-gray-600 text-lg leading-relaxed">
-            Since <strong class="text-brandDark">11 May 1988</strong>, <strong class="text-brandDark">Perkhidmatan Dan Jualan Kanesan Bersaudara (KBS)</strong> has been a
-            trusted name in the community, based in Simpang, Taiping, Perak. What began as a family-run venture has
-            grown into a beloved brand known for quality, authenticity, and deep-rooted tradition.
+          <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+            Since <strong class="text-brandBrown">11 May 1988</strong>, <strong class="text-brandBrown">Perkhidmatan Dan Jualan Kanesan Bersaudara (KBS)</strong> has been a
+            trusted name in the community, based in Simpang, Taiping, Perak.
           </p>
           <p class="text-gray-600 leading-relaxed">
-            As an <strong class="text-brandDark">Official Agent of Syarikat Kilang Rempa Jaya Sakti Sdn. Bhd.</strong>,
-            we distribute premium spice blends and curry powders — carefully sourced and crafted using time-honoured
-            recipes to bring authentic flavour to every kitchen.
+            As an <strong class="text-brandBrown">Official Agent of Syarikat Kilang Rempa Jaya Sakti Sdn. Bhd.</strong>,
+            we distribute premium spice blends and curry powders — carefully sourced and crafted using time-honoured recipes.
           </p>
           <p class="text-gray-600 leading-relaxed">
-            Beyond the kitchen, KBS is also a trusted supplier of authentic Indian prayer items — serving the
-            spiritual needs of our community with the same dedication we bring to our spices.
+            Beyond the kitchen, KBS is also a trusted supplier of authentic Indian prayer items — serving the spiritual needs of our community with the same dedication we bring to our spices.
           </p>
 
-          <!-- stat row -->
-          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-200">
             <div class="text-center">
               <p class="font-serif text-3xl text-brandMaroon font-bold">38+</p>
               <p class="text-xs text-gray-500 mt-1 leading-tight">Years of Heritage</p>
             </div>
-            <div class="text-center border-x border-gray-100">
+            <div class="text-center border-x border-gray-200">
               <p class="font-serif text-3xl text-brandMaroon font-bold">100+</p>
               <p class="text-xs text-gray-500 mt-1 leading-tight">Product Varieties</p>
             </div>
@@ -402,26 +374,24 @@
   </section>
 
   <!-- ═════════════  EVENTS  ═════════════ -->
-  <section id="events" class="py-24 px-6 md:px-12 lg:px-24 bg-brandCream">
+  <section id="events" class="py-20 px-6 md:px-12 lg:px-24 bg-white">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-14">
         <p class="section-tag mb-2">Our Moments</p>
-        <h2 class="font-serif text-4xl md:text-5xl text-brandDark mb-4">Company Events</h2>
+        <h2 class="font-serif text-4xl md:text-5xl text-brandBrown mb-4">Company Events</h2>
         <div class="w-20 h-1 bg-brandMaroon mx-auto rounded-full mb-5"></div>
-        <p class="text-gray-600 max-w-xl mx-auto text-lg">
+        <p class="text-gray-500 max-w-xl mx-auto text-base md:text-lg">
           Beyond business — we build bonds, celebrate milestones, and grow together as one family.
         </p>
       </div>
 
-      <!-- Event Card: Penang Escape Team Building -->
-      <div class="bg-white rounded-2xl shadow-md overflow-hidden max-w-5xl mx-auto">
+      <div class="bg-brandCream rounded-2xl shadow-md overflow-hidden max-w-5xl mx-auto" style="background-color:#FAF6EE;">
 
-        <!-- Header bar -->
-        <div class="bg-brandMaroon px-8 py-5 flex flex-wrap items-center justify-between gap-4">
+        <div class="px-8 py-5 flex flex-wrap items-center justify-between gap-4" style="background-color:#7B1010;">
           <div>
             <div class="flex items-center gap-2 mb-1">
-              <span class="bg-brandYellow text-brandDark text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Team Building</span>
+              <span class="bg-brandYellow text-brandBrown text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Team Building</span>
               <span class="border border-white/30 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wide">Penang</span>
             </div>
             <h3 class="font-serif text-2xl md:text-3xl text-white">Penang Escape Adventure</h3>
@@ -443,13 +413,10 @@
           </div>
         </div>
 
-        <!-- Photo gallery grid -->
         <div class="grid grid-cols-3 gap-1 p-1">
-          <!-- Large featured photo -->
           <div class="col-span-2 row-span-2 overflow-hidden h-72 md:h-80 cursor-pointer" onclick="openLightbox('images/tm1.jpeg')">
             <img src="images/tm1.jpeg" alt="Team Building Penang Escape" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
           </div>
-          <!-- Smaller photos -->
           <div class="overflow-hidden h-36 md:h-[156px] cursor-pointer" onclick="openLightbox('images/tm2.jpeg')">
             <img src="images/tm2.jpeg" alt="Team Building" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
           </div>
@@ -467,11 +434,10 @@
           </div>
         </div>
 
-        <!-- Description -->
         <div class="px-8 py-6">
           <p class="text-gray-500 leading-relaxed">
             The KBS family came together for an exciting team building day at
-            <strong class="text-brandDark">Escape Penang</strong> — one of Malaysia's most thrilling
+            <strong class="text-brandBrown">Escape Penang</strong> — one of Malaysia's most thrilling
             outdoor adventure parks. The team tackled obstacle courses, zip lines, and challenges
             that strengthened trust, communication, and camaraderie across the whole company.
           </p>
@@ -485,32 +451,29 @@
         <img id="lightbox-img" src="" alt="" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl object-contain"/>
       </div>
 
-      <!-- More events teaser -->
       <p class="text-center text-gray-400 text-sm mt-10 italic">More memories coming soon…</p>
 
     </div>
   </section>
 
   <!-- ═════════════  CONTACT  ═════════════ -->
-  <section id="contact" class="py-24 px-6 md:px-12 lg:px-24 bg-brandCream">
+  <section id="contact" class="py-20 px-6 md:px-12 lg:px-24" style="background-color:#FAF6EE;">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-14">
         <p class="section-tag mb-2">Get In Touch</p>
-        <h2 class="font-serif text-4xl md:text-5xl text-brandDark mb-4">Contact Us</h2>
+        <h2 class="font-serif text-4xl md:text-5xl text-brandBrown mb-4">Contact Us</h2>
         <div class="w-20 h-1 bg-brandMaroon mx-auto rounded-full mb-5"></div>
-        <p class="text-gray-600 max-w-xl mx-auto text-lg">
+        <p class="text-gray-500 max-w-xl mx-auto text-base md:text-lg">
           We'd love to hear from you — whether it's a product enquiry, bulk order, or just a hello.
         </p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
 
-        <!-- Info side -->
-        <div class="space-y-10">
+        <div class="space-y-8">
 
           <div class="space-y-6">
-            <!-- Address -->
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 bg-brandMaroon rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -519,7 +482,7 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-brandDark">Our Location</p>
+                <p class="font-semibold text-brandBrown">Our Location</p>
                 <p class="text-gray-500 text-sm mt-1 leading-relaxed">
                   No. 13, 14 &amp; 15, Lorong 1, Taman Berkat,<br/>
                   Jalan KG Dew, 34700 Simpang Taiping, Perak
@@ -527,7 +490,6 @@
               </div>
             </div>
 
-            <!-- Phone -->
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 bg-brandMaroon rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -535,7 +497,7 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-brandDark">Phone</p>
+                <p class="font-semibold text-brandBrown">Phone</p>
                 <p class="text-gray-500 text-sm mt-1 leading-relaxed">
                   019-5515612 &nbsp;(Mr Kanesan)<br/>
                   012-4312665 &nbsp;(Mr Rajan)<br/>
@@ -544,7 +506,6 @@
               </div>
             </div>
 
-            <!-- Email -->
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 bg-brandMaroon rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -552,12 +513,11 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-brandDark">Email</p>
+                <p class="font-semibold text-brandBrown">Email</p>
                 <p class="text-gray-500 text-sm mt-1">matakanesan@gmail.com</p>
               </div>
             </div>
 
-            <!-- Hours -->
             <div class="flex items-start gap-4">
               <div class="w-11 h-11 bg-brandMaroon rounded-full flex items-center justify-center flex-shrink-0">
                 <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -565,19 +525,18 @@
                 </svg>
               </div>
               <div>
-                <p class="font-semibold text-brandDark">Business Hours</p>
+                <p class="font-semibold text-brandBrown">Business Hours</p>
                 <p class="text-gray-500 text-sm mt-1 leading-relaxed">
-                  Monday – Saturday: 9:00 am – 6:00 pm<br/>
-                  Sunday: 10:00 am – 4:00 pm<br/>
+                  Monday – Saturday: 10:00 am – 7:00 pm<br/>
+                  Sunday: Closed<br/>
                   <span class="text-xs text-gray-400">Fax: 05-8494531</span>
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Social links -->
           <div>
-            <p class="text-sm font-semibold text-brandDark uppercase tracking-wider mb-3">Follow Us</p>
+            <p class="text-sm font-semibold text-brandBrown uppercase tracking-wider mb-3">Follow Us</p>
             <div class="flex gap-3">
               <a href="https://www.facebook.com/share/188mU4Wpxa/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
                  class="w-10 h-10 rounded-full bg-brandMaroon flex items-center justify-center text-white hover:bg-brandDark transition-colors">
@@ -587,17 +546,15 @@
                  class="w-10 h-10 rounded-full bg-brandMaroon flex items-center justify-center text-white hover:bg-brandDark transition-colors">
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.977 6.981 1.281.058 1.689.072 4.951.072s3.67-.014 4.948-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </a>
-
             </div>
           </div>
 
         </div>
 
-        <!-- Form side -->
+        <!-- Form -->
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-10">
-          <h3 class="font-serif text-2xl text-brandDark mb-6">Send Us a Message</h3>
+          <h3 class="font-serif text-2xl text-brandBrown mb-6">Send Us a Message</h3>
           <form id="contact-form" class="space-y-5">
-            <!-- Web3Forms hidden fields -->
             <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
             <input type="hidden" name="subject" value="New Enquiry from KBS Website"/>
             <input type="hidden" name="from_name" value="KBS Website"/>
@@ -606,22 +563,22 @@
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Your Name</label>
                 <input type="text" name="name" required placeholder="John Doe"
-                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandYellow transition"/>
+                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandGold transition"/>
               </div>
               <div>
                 <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
                 <input type="email" name="email" required placeholder="john@example.com"
-                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandYellow transition"/>
+                  class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandGold transition"/>
               </div>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone Number</label>
               <input type="tel" name="phone" placeholder="+60 XX-XXXXXXXX"
-                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandYellow transition"/>
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandGold transition"/>
             </div>
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Subject</label>
-              <select name="enquiry_type" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-brandYellow transition">
+              <select name="enquiry_type" class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-brandGold transition">
                 <option>Product Enquiry</option>
                 <option>Bulk Order</option>
                 <option>Prayer Items</option>
@@ -631,7 +588,7 @@
             <div>
               <label class="block text-sm font-medium text-gray-700 mb-1.5">Message</label>
               <textarea rows="4" name="message" required placeholder="Tell us how we can help…"
-                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandYellow transition resize-none"></textarea>
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brandGold transition resize-none"></textarea>
             </div>
             <button type="submit" id="submit-btn"
               class="w-full bg-brandMaroon text-white py-3.5 rounded-lg font-semibold text-sm uppercase tracking-wide hover:bg-brandDark transition-colors flex items-center justify-center gap-2">
@@ -655,36 +612,29 @@
   </section>
 
   <!-- ═══════════════════  FOOTER  ═══════════════════ -->
-  <footer class="bg-brandDark text-white">
+  <footer class="bg-brandBrown text-white" style="background-color:#2C1A0E;">
     <div class="max-w-7xl mx-auto px-6 md:px-12 py-14">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
 
-        <!-- Brand -->
         <div>
-          <img
-            alt="KBS Logo"
-            class="h-16 object-contain mb-4"
-            src="images/kbslogo.jpeg"
-          />
+          <img alt="KBS Logo" class="h-14" style="mix-blend-mode: screen; margin-bottom:1rem; display:block;" src="images/kbslogo.jpeg"/>
           <p class="text-white/55 text-sm leading-relaxed">
             Perkhidmatan Dan Jualan Kanesan Bersaudara — bringing authentic flavours and sacred traditions to your home since 1988.
           </p>
           <p class="text-white/35 text-xs mt-2">Reg. No: 198803068038 (AS0095186-K)</p>
         </div>
 
-        <!-- Quick links -->
         <div>
           <h5 class="text-brandYellow text-xs font-semibold uppercase tracking-widest mb-5">Quick Links</h5>
           <ul class="space-y-2.5 text-sm">
-            <li><a href="#home"     class="text-white/60 hover:text-brandYellow transition-colors">Home</a></li>
-            <li><a href="#about"    class="text-white/60 hover:text-brandYellow transition-colors">About Us</a></li>
+            <li><a href="#home"        class="text-white/60 hover:text-brandYellow transition-colors">Home</a></li>
+            <li><a href="#about"       class="text-white/60 hover:text-brandYellow transition-colors">About Us</a></li>
             <li><a href="#products" class="text-white/60 hover:text-brandYellow transition-colors">Products</a></li>
-            <li><a href="#events"   class="text-white/60 hover:text-brandYellow transition-colors">Events</a></li>
-            <li><a href="#contact"  class="text-white/60 hover:text-brandYellow transition-colors">Contact Us</a></li>
+            <li><a href="#events"      class="text-white/60 hover:text-brandYellow transition-colors">Events</a></li>
+            <li><a href="#contact"     class="text-white/60 hover:text-brandYellow transition-colors">Contact Us</a></li>
           </ul>
         </div>
 
-        <!-- Contact snippet -->
         <div>
           <h5 class="text-brandYellow text-xs font-semibold uppercase tracking-widest mb-5">Contact</h5>
           <address class="not-italic text-white/60 text-sm space-y-2 leading-relaxed">
@@ -696,7 +646,6 @@
 
       </div>
 
-      <!-- bottom bar -->
       <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
         <p>© 2026 Perkhidmatan Dan Jualan Kanesan Bersaudara. All rights reserved.</p>
         <p>Heritage of Flavor — Est. 11 May 1988</p>
@@ -705,7 +654,6 @@
   </footer>
 
   <script>
-    // Contact form — Web3Forms submission
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
       const btn     = document.getElementById('submit-btn');
@@ -714,7 +662,6 @@
       const success = document.getElementById('form-success');
       const error   = document.getElementById('form-error');
 
-      // Show loading state
       btn.disabled = true;
       spinner.classList.remove('hidden');
       btnText.textContent = 'Sending…';
@@ -740,8 +687,8 @@
       }
     });
 
-    // Highlight active nav link on scroll
-    const sections = document.querySelectorAll('section[id], header[id]');
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -768,8 +715,8 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-    // Hamburger menu toggle
-    const menuBtn  = document.getElementById('menu-btn');
+    // Hamburger
+    const menuBtn    = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const bar1 = document.getElementById('bar1');
     const bar2 = document.getElementById('bar2');
