@@ -741,24 +741,24 @@
   </script>
 
   <!-- ═══════════════════  SPICE GALLERY MODAL  ═══════════════════ -->
-  <div id="spice-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background:rgba(20,8,4,0.92);">
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col overflow-hidden">
+  <div id="spice-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4" style="background:rgba(20,8,4,0.92);">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
 
       <!-- Modal header -->
-      <div class="flex items-center justify-between px-7 py-5 border-b border-gray-100" style="background:#FAF6EE;">
+      <div class="flex items-center justify-between px-4 py-3 sm:px-7 sm:py-5 border-b border-gray-100" style="background:#FAF6EE;">
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-brandGold mb-0.5">KBS Collection</p>
-          <h3 class="font-serif text-2xl text-brandBrown font-bold">Food Spices Gallery</h3>
+          <h3 class="font-serif text-lg sm:text-2xl text-brandBrown font-bold">Food Spices Gallery</h3>
         </div>
         <button onclick="closeSpiceGallery()" class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-brandMaroon hover:bg-red-50 transition-colors text-2xl leading-none">&times;</button>
       </div>
 
       <!-- Grid -->
-      <div class="overflow-y-auto p-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5">
+      <div class="overflow-y-auto p-3 sm:p-5 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-5">
 
         <!-- Each card: cream bg, contain (full image visible), hover overlay -->
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice1.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice1.jpeg" alt="Spice 1" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -767,7 +767,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice2.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice2.jpeg" alt="Spice 2" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -776,7 +776,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice3.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice3.jpeg" alt="Spice 3" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -785,7 +785,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice4.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice4.jpeg" alt="Spice 4" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -794,7 +794,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice5.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice5.jpeg" alt="Spice 5" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -803,7 +803,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice6.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice6.jpeg" alt="Spice 6" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -812,7 +812,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice7.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice7.jpeg" alt="Spice 7" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -821,7 +821,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice9.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice9.jpeg" alt="Spice 9" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -830,7 +830,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice12.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice12.jpeg" alt="Spice 12" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -839,7 +839,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice13.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice13.jpeg" alt="Spice 13" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -848,7 +848,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice14.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice14.jpeg" alt="Spice 14" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -857,7 +857,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice15.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice15.jpeg" alt="Spice 15" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -866,7 +866,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice16.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice16.jpeg" alt="Spice 16" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -875,7 +875,7 @@
         </div>
 
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice17.jpeg')">
-          <div class="h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-32 sm:h-44 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/spice17.jpeg" alt="Spice 17" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -932,23 +932,23 @@
   </script>
 
   <!-- ═══════════════════  PRAYER GALLERY MODAL  ═══════════════════ -->
-  <div id="prayer-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-4" style="background:rgba(20,8,4,0.92);">
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden">
+  <div id="prayer-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4" style="background:rgba(20,8,4,0.92);">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[95vh] sm:max-h-[90vh] flex flex-col overflow-hidden">
 
       <!-- Modal header -->
-      <div class="flex items-center justify-between px-7 py-5 border-b border-gray-100" style="background:#FAF6EE;">
+      <div class="flex items-center justify-between px-4 py-3 sm:px-7 sm:py-5 border-b border-gray-100" style="background:#FAF6EE;">
         <div>
           <p class="text-xs font-semibold uppercase tracking-widest text-brandGold mb-0.5">KBS Collection</p>
-          <h3 class="font-serif text-2xl text-brandBrown font-bold">Prayer Items Gallery</h3>
+          <h3 class="font-serif text-lg sm:text-2xl text-brandBrown font-bold">Prayer Items Gallery</h3>
         </div>
         <button onclick="closePrayerGallery()" class="w-9 h-9 rounded-full flex items-center justify-center text-gray-400 hover:text-brandMaroon hover:bg-red-50 transition-colors text-2xl leading-none">&times;</button>
       </div>
 
       <!-- Grid -->
-      <div class="overflow-y-auto p-6 grid grid-cols-2 sm:grid-cols-3 gap-5">
+      <div class="overflow-y-auto p-3 sm:p-5 grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer1.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer1.jpeg" alt="Prayer Item 1" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -957,7 +957,7 @@
         </div>
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer2.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer2.jpeg" alt="Prayer Item 2" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -966,7 +966,7 @@
         </div>
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer3.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer3.jpeg" alt="Prayer Item 3" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -975,7 +975,7 @@
         </div>
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer4.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer4.jpeg" alt="Prayer Item 4" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -984,7 +984,7 @@
         </div>
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer5.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer5.jpeg" alt="Prayer Item 5" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
@@ -993,7 +993,7 @@
         </div>
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer6.jpeg')">
-          <div class="h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
+          <div class="h-36 sm:h-52 flex items-center justify-center p-2" style="background:#FAF6EE;">
             <img src="images/prayer6.jpeg" alt="Prayer Item 6" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"/>
           </div>
           <div class="px-3 py-2 text-center border-t border-gray-100">
