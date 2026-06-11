@@ -98,7 +98,7 @@
 
     <!-- Logo (left) -->
     <a href="#home" class="flex items-center gap-3">
-      <img alt="KBS Logo" class="h-14 md:h-16" style="mix-blend-mode: multiply;" src="images/kbslogo.jpeg"/>
+      <img alt="KBS Logo" class="h-14 md:h-16" style="mix-blend-mode: multiply;" src="images/kbslogo.png"/>
     </a>
 
     <!-- Desktop nav (right) -->
@@ -642,7 +642,8 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
 
         <div>
-          <img alt="KBS Logo" class="h-14" style="clip-path: ellipse(40% 32% at 50% 50%); margin-bottom:1rem; display:block;" src="images/kbslogo.jpeg"/>
+                <img alt="KBS Logo" class="h-14 md:h-16"  src="images/kbslogo.png"/>
+    </a>
           <p class="text-white/55 text-sm leading-relaxed">
             Perkhidmatan Dan Jualan Kanesan Bersaudara — bringing authentic flavours and sacred traditions to your home since 1988.
           </p>
@@ -767,7 +768,7 @@
 
   <!-- ═══════════════════  SPICE GALLERY MODAL  ═══════════════════ -->
   <div id="spice-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4" style="background:rgba(20,8,4,0.92);">
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[95vh] flex flex-col overflow-hidden">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full min-w-0 max-w-5xl max-h-[95vh] flex flex-col overflow-y-auto">
 
       <!-- Modal header -->
       <div class="flex items-center justify-between px-4 py-3 sm:px-7 sm:py-5 border-b border-gray-100" style="background:#FAF6EE;">
@@ -779,7 +780,7 @@
       </div>
 
       <!-- Grid -->
-      <div class="overflow-y-auto p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <div class="p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
 
         <!-- Each card: cream bg, contain (full image visible), hover overlay -->
         <div class="group relative rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openSpiceLightbox('images/spice1.jpeg')">
@@ -958,7 +959,7 @@
 
   <!-- ═══════════════════  PRAYER GALLERY MODAL  ═══════════════════ -->
   <div id="prayer-gallery" class="fixed inset-0 z-50 hidden items-center justify-center p-2 sm:p-4" style="background:rgba(20,8,4,0.92);">
-    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[95vh] flex flex-col overflow-hidden">
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full min-w-0 max-w-4xl max-h-[95vh] flex flex-col overflow-y-auto">
 
       <!-- Modal header -->
       <div class="flex items-center justify-between px-4 py-3 sm:px-7 sm:py-5 border-b border-gray-100" style="background:#FAF6EE;">
@@ -970,7 +971,7 @@
       </div>
 
       <!-- Grid -->
-      <div class="overflow-y-auto p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+      <div class="p-3 sm:p-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
 
         <div class="group rounded-xl cursor-pointer shadow-sm hover:shadow-xl transition-all border border-gray-100 overflow-hidden bg-white flex flex-col" onclick="openPrayerLightbox('images/prayer1.jpeg')">
           <div class="h-28 sm:h-36 flex items-center justify-center p-2" style="background:#FAF6EE;">
