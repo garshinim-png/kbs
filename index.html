@@ -499,9 +499,9 @@
               <div>
                 <p class="font-semibold text-brandBrown">Phone</p>
                 <p class="text-gray-500 text-sm mt-1 leading-relaxed">
-                  019-5515612 &nbsp;(Mr Kanesan)<br/>
-                  012-4312665 &nbsp;(Mr Rajan)<br/>
-                  016-5433468 &nbsp;(Mr Kalai)
+                  +6019-5515612 &nbsp;(Mr Kanesan)<br/>
+                  +6012-4312665 &nbsp;(Mr Rajan)<br/>
+                  +6016-5433468 &nbsp;(Mr Kalai)
                 </p>
               </div>
             </div>
@@ -514,7 +514,7 @@
               </div>
               <div>
                 <p class="font-semibold text-brandBrown">Email</p>
-                <p class="text-gray-500 text-sm mt-1">matakanesan@gmail.com</p>
+                <p class="text-gray-500 text-sm mt-1">official@kbs-malaysia.com</p>
               </div>
             </div>
 
@@ -642,8 +642,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
 
         <div>
-                <img alt="KBS Logo" class="h-16 md:h-20"  src="images/kbslogo.png"/>
-    </a>
+          <img alt="KBS Logo" class="h-16 md:h-20" src="images/kbslogo.png"/>
           <p class="text-white/55 text-sm leading-relaxed">
             Perkhidmatan Dan Jualan Kanesan Bersaudara — bringing authentic flavours and sacred traditions to your home since 1988.
           </p>
@@ -666,7 +665,7 @@
           <address class="not-italic text-white/60 text-sm space-y-2 leading-relaxed">
             <p>No. 13, 14 &amp; 15, Lorong 1, Taman Berkat,<br/>Jalan Kg Dew, 34700 Simpang Taiping, Perak</p>
             <p>019-5515612 / 012-4312665 / 016-5433468</p>
-            <p>matakanesan@gmail.com</p>
+            <p>official@kbs-malaysia.com</p>
           </address>
         </div>
 
@@ -695,6 +694,11 @@
       error.classList.add('hidden');
 
       const formData = new FormData(this);
+      const countryCode = formData.get('phone_country_code');
+      const phoneNumber = formData.get('phone_number');
+      formData.delete('phone_country_code');
+      formData.delete('phone_number');
+      formData.set('phone', `${countryCode} ${phoneNumber}`);
       try {
         const res  = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
         const data = await res.json();
